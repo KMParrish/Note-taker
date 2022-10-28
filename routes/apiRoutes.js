@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const savedNotes = require('../db/savedNotes');
+const saveData = require('../db/saveData');
 
 router.get('/notes', function (req, res) {
-    savedNotes
+    saveData
         .fetchNotes()
         .then(notes => res.json(notes))
         .catch(err => res.status(500).json(err));
 });
 
 router.post('/notes', (req, res) => {
-    savedNotes
+    savedData
         .appendNote(req.body)
         .then((note) => res.json(note))
         .catch(err => res.status(500).json(err));
@@ -17,7 +17,7 @@ router.post('/notes', (req, res) => {
 
 // Delete Note
 router.delete('/notes/:id', function (req, res) {
-    savedNotes
+    savedNData
         .deleteNote(req.params.id)
         .then(() => res.json({ ok: true }))
         .catch(err => res.status(500).json(err));

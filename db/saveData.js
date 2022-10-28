@@ -1,8 +1,8 @@
-const reviewNote = util.promisify(fs.readFile);
-const makeNote = util.promisify(fs.writeFile);
 const util = require('util');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid'); 
+const reviewNote = util.promisify(fs.readFile);
+const makeNote = util.promisify(fs.writeFile);
 
 
 class Save {
